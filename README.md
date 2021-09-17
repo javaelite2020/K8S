@@ -54,3 +54,14 @@
 		kubectl get services
 	c. Verify external ip
 		curl --request GET http://34.132.86.97:8080/K8s-helloworld/k8s/helloworld
+
+	
+#Consider following before migrating tomcat apps to GKE 
+1. External sources like data sources, JNDI may require migration and reconfiguration
+2. Inspect META-INF/context.xml for <resource> and <Context> elements
+3. On the application servers, $CATALINA_HOME/conf/context.xml and server.xml for <resource> and <Context> elements
+4. All other external resources 
+5. Check passowrds and secure strings (for example, server.xml and context.xml)
+6. Static content in appication may have to relocate in GCP
+7. Parameterize the configurations
+	
